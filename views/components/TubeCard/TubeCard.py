@@ -1,3 +1,4 @@
+from kivy.animation import Animation
 from kivy.clock import Clock
 from kivy.properties import StringProperty
 from kivymd.app import MDApp
@@ -9,6 +10,11 @@ class TubeCard(MDCard):
     yt_url = StringProperty()
     tube_label = StringProperty()
     img = StringProperty('C:/Users/Виктор Выборнов/Pictures/T9OiwUchG78.jpg')
+
+    def on_touch_down(self, touch):
+        if self.ids.controls.collide_point(*touch.pos):
+            amim = Animation(opacity=.8)
+            amim.start(self.ids.controls)
 
     def dl_callback(self, dt):
         self.ids.info_lbl.theme_text_color = 'Custom'
