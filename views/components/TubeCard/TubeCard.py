@@ -8,6 +8,7 @@ from pytube import YouTube
 class TubeCard(MDCard):
     yt_url = StringProperty()
     tube_label = StringProperty()
+    img = StringProperty('C:/Users/Виктор Выборнов/Pictures/T9OiwUchG78.jpg')
 
     def dl_callback(self, dt):
         self.ids.info_lbl.theme_text_color = 'Custom'

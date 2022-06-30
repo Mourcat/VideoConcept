@@ -3,10 +3,9 @@
 
 <TubeCard>
 	orientation: 'vertical'
-    size_hint: .7, .8
-    #size: Win.width//7, Win.height//4
+    size_hint: .3, .3
     pos_hint: {'center_x': .5, 'center_y': .5}
-    padding: [dp(20), dp(50), dp(20), dp(50)] 
+    padding: [dp(20), dp(50), dp(20), dp(50)]
     spacing: dp(35)
     radius: [dp(25),]
     
@@ -17,7 +16,8 @@
         size_hint_y: None
         height: self.texture_size[1]
             
-    Widget:
+    Image:
+        source: root.img
             
     MDLabel:
         id: info_lbl
