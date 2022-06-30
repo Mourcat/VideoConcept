@@ -15,7 +15,6 @@ class IntoScreen(MDScreen):
     
     def add_cards(self):
         for name in self.tube_names:
-            self.ids.card_lay.add_widget(TubeCard())
+            self.ids.card_lay.add_widget(TubeCard(tube_label=name))
 
-    
-            
+
