@@ -1,0 +1,71 @@
+#: import Win kivy.core.window.Window
+
+
+<TubeCard>
+	orientation: 'vertical'
+    size_hint: .7, .8
+    #size: Win.width//7, Win.height//4
+    pos_hint: {'center_x': .5, 'center_y': .5}
+    padding: [dp(20), dp(50), dp(20), dp(50)] 
+    spacing: dp(35)
+    radius: [dp(25),]
+    
+    MDLabel:
+        text: root.tube_label
+        halign: 'center'
+        font_style: 'H4'
+        size_hint_y: None
+        height: self.texture_size[1]
+            
+    Widget:
+            
+    MDLabel:
+        id: info_lbl
+        text: 'Please, paste YouTube url?!'
+        theme_text_color: 'Custom'
+		text_color: app.theme_cls.primary_light
+        halign: 'center'
+        font_style: 'Button'
+        size_hint_y: None
+        height: self.texture_size[1]
+        
+    TextInput:
+        id: yt_url
+        background_color: .3, .3, .3, .3
+        foreground_color: app.theme_cls.accent_light
+        size_hint: 1, None
+        height: self.minimum_height+dp(10)
+        pos_hint: {'center_y': .5}
+        on_text:
+            start_btn.disabled = False
+        
+    MDBoxLayout:
+        adaptive_height: True
+
+        MDIconButton:
+            icon: 'clipboard'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            theme_text_color: 'Custom'
+			text_color: app.theme_cls.primary_light
+            on_release:
+                yt_url.text=Clipboard.paste()
+                    
+        MDIconButton:
+            icon: 'close'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            theme_text_color: 'Custom'
+			text_color: app.theme_cls.primary_light
+            on_release:
+                yt_url.text=''
+    
+    MDRaisedButton:
+        id: start_btn
+        text: 'START'
+        disabled: True
+        pos_hint: {'center_x': .5}
+        on_press:
+            info_lbl.text = 'Please, wait...'
+            self.disabled = True
+        on_release:
+            root.yt_url = yt_url.text
+            root.download_it(root.yt_url)

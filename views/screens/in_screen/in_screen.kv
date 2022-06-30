@@ -1,0 +1,27 @@
+#: import Clipboard kivy.core.clipboard.Clipboard
+
+
+<IntoScreen>
+
+	MDIconButton:
+		icon: 'menu'
+		theme_text_color: 'Custom'
+		text_color: app.theme_cls.primary_light
+		pos_hint: {'top': 1}
+		
+	MDIconButton:
+		icon: 'dots-vertical'
+		theme_text_color: 'Custom'
+		text_color: app.theme_cls.primary_light
+		pos_hint: {'right': 1, 'top': 1}
+	
+	ScrollView:
+	    
+    	MDBoxLayout:
+    	    id: card_lay
+    	    orientation: 'vertical'
+    	    size_hint_y: None
+			height: root.height - dp(70)
+	
+    	    
+    
