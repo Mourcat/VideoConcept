@@ -3,12 +3,20 @@
 
 <TubeCard>
 	orientation: 'vertical'
-    size_hint: .3, .3
+	md_bg_color: root.bg_color
+    size_hint: .7, .3
     pos_hint: {'center_x': .5, 'center_y': .5}
-    padding: [dp(20), dp(50), dp(20), dp(50)]
-    spacing: dp(35)
+    padding: [dp(20), dp(30), dp(20), dp(40)]
+    spacing: dp(15)
     radius: [dp(25),]
     
+    canvas:
+    	Color:
+    		rgba:  root.outline_color
+    	Line:
+    		rounded_rectangle: (self.x, self.y, self.width, self.height, dp(25))
+    		width: sp(2)
+    	
     MDLabel:
         text: root.tube_label
         halign: 'center'
@@ -16,7 +24,7 @@
         size_hint_y: None
         height: self.texture_size[1]
             
-    Image:
+    AsyncImage:
         source: root.img
             
     MDLabel:
@@ -40,8 +48,9 @@
             start_btn.disabled = False
         
     MDBoxLayout:
-        adaptive_height: True
-
+        adaptive_size: True
+		pos_hint: {'center_x': .7, 'center_y': .4}
+		
         MDIconButton:
             icon: 'clipboard'
             pos_hint: {'center_x': .5, 'center_y': .5}

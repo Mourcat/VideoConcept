@@ -1,5 +1,5 @@
 from kivy.clock import Clock
-from kivy.properties import StringProperty
+from kivy.properties import ListProperty, StringProperty
 from kivymd.app import MDApp
 from kivymd.uix.card import MDCard
 from pytube import YouTube
@@ -8,7 +8,9 @@ from pytube import YouTube
 class TubeCard(MDCard):
     yt_url = StringProperty()
     tube_label = StringProperty()
-    img = StringProperty('C:/Users/Виктор Выборнов/Pictures/T9OiwUchG78.jpg')
+    img = StringProperty()
+    outline_color = ListProperty()
+    bg_color = ListProperty()
 
     def dl_callback(self, dt):
         self.ids.info_lbl.theme_text_color = 'Custom'

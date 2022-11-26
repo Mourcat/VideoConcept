@@ -10,8 +10,8 @@ class YLoaderApp(MDApp):
         self.theme_cls = ThemeManager()
         self.theme_cls.material_style = 'M3'
         self.theme_cls.theme_style = 'Dark'
-        self.theme_cls.primary_palette = 'Indigo'
-        self.theme_cls.accent_palette = 'Green'
+        self.theme_cls.primary_palette = 'BlueGray'
+        self.theme_cls.accent_palette = 'Red'
         self.kvs_loader()
         self.root = IntoScreen()
         return self.root
